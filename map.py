@@ -13,16 +13,13 @@ class Map():
     def __setitem__ (self, key, value):
         """Set the tile at the given coordinates. Key is an x,y pair"""
         self.tiles [key[0]] [key[1]] = value
-    def __iter__ (self):
-        self._iter_counter = -1
-        return self
-    def __next__ (self):
-        if self._iter_counter >= self.width * self.height - 1:
-            raise StopIteration
-        else:
-            self._iter_counter += 1
-            return self.tiles [self._iter_counter % self.width] [self._iter_counter // self.width]
- 
+
+    def all_cells(self):
+        """Generator returning all cells"""
+        for row in self.tiles:
+            for tile in row:
+                yield tile
+
     def __str__ (self):
         res = ""
         for x in range (self.width):
@@ -35,12 +32,13 @@ if __name__ == '__main__':
     print ("==TESTING MAP CLASS==")
     m = Map(5, 10)
     m[4, 2].terrain_type = Tile.WATER #accessing cell
+    assert m[4,2] == Tile.WATER
     
     a = 0
-    for i in m: #iterate through every cell
+    for i in m.all_cells(): #iterate through every cell
         print (i.x, i.y)
         a += 1
         
-    print ("number of cells iterated through: ", a)
+    assert a == 50
 
     print (m)

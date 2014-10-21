@@ -20,7 +20,7 @@ class IsoMap (Map):
         self.grid_width, self.grid_height = grid_width, grid_height
         self.SCROLL_SPEED = self.grid_width // 16
         
-        for tile in self:
+        for tile in self.all_cells():
             tile.iso_coords = tuple (self.to_cartesian (tile.x + corner[0], tile.y + corner[1]) for corner in ((0, 0), (0, 1), (1, 1), (1, 0)))
         
     def to_cartesian (self, grid_x, grid_y):

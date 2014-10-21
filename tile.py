@@ -16,12 +16,22 @@ class Tile():
         self._neighbours = []
         self.colour = Tile.TERRAIN_COLOURS [self.terrain_type]
 
+    def draw_description(self, surface):
+        """
+        Draws the description of the tile onto surface
+
+        surface - instance of pygame.Surface
+        """
+
+
+
     def set_neighbours (self, north, east, south, west):
         self.north, self.east, self.south, south.west = north, east, south, west
         self._neighbours = [north, east, south, west]
 
     @property
     def neighbours(self):
+        """List of neighbours for pathfinding"""
         return self._neighbours
 
     def to_tile (self):

@@ -1,10 +1,16 @@
+####### THE MAIN CLASS ########
+# Run me. The main game loop is in here.
+#
+# Write instructions for the parser. 
+
+
 import pygame
 
 from game import Game
 
 
 ### DEFINE CONSTANTS ###
-X_RES, Y_RES = 600, 400
+X_RES, Y_RES = 800, 400
 
 city_names = ["Algiers", "Beirut", "Cairo", "Dresden", "Edinburgh", "Funafuti", "Gibraltar", "Havana", "Iol Caesarea"]
 team_names = ["A team", "B team", "C team"] #make sure the version in city stays current too. This will not be in the final build, don't worry.
@@ -78,4 +84,4 @@ if __name__ == "__main__":
 
         print ("\n")
         
-    game.enter_drawing_loop(main_surface, window)
+    game.enter_drawing_loop(window)
