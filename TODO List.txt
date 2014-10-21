@@ -1,0 +1,11 @@
+##### Main game loop ####
+# 1. Queue all orders in a string
+# 2. Execute them all
+# 3. Go into drawing phase. 
+
+
+
+TODO: 
+- Enable control of cities and ending turns
+- Enable control of units 
+- Look for ways to speed up drawing routines: by caching more calculations
